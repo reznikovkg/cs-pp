@@ -5,8 +5,6 @@ namespace cs_pp1
 {
     class Program
     {
-        
-        
         static double Fu2 (double x)
         {
             return Math.Sin(x);
