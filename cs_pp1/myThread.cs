@@ -14,6 +14,8 @@ namespace cs_pp1
         private double b;
         private double h;
 
+        public bool isEnd;
+
         public TimeSpan time;
 
         public double result = 0;
@@ -24,6 +26,7 @@ namespace cs_pp1
             a = _a;
             b = _b;
             h = _h;
+            isEnd = false;
 
             thread = new Thread(Func);
             thread.Name = name + num;
@@ -40,8 +43,8 @@ namespace cs_pp1
             }
             DateTime time2 = DateTime.Now;
             time = time2 - time1;
-
             Console.WriteLine("Поток " + thread.Name + " завершен, время операции: " + time);
+            isEnd = thread.IsAlive;
         }
 
     }

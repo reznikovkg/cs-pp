@@ -33,15 +33,11 @@ namespace cs_pp1
                 b = double.Parse(Console.ReadLine());
 
                 myIntegral iinn = new myIntegral(Fu, st, h, a, b);
-                Console.ReadKey();
                 Console.WriteLine(iinn.getResult());
 
-                Console.WriteLine("Кол-во потоков: ");
+                Console.WriteLine("Кол-во потоков (0 -> выход): ");
                 st = int.Parse(Console.ReadLine());
             }
-
-            Console.WriteLine("Выход -> Enter");
-            Console.ReadKey();
         }
     }
 }
