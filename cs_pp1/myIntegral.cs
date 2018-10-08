@@ -14,7 +14,7 @@ namespace cs_pp1
 
         private List<myThread> listTh;
 
-        private bool isEnd;
+        private int isEnd;
     
         public myIntegral(Func<double, double> _func, double _th, double _h, double _a, double _b)
         {
@@ -22,7 +22,7 @@ namespace cs_pp1
             this.th = _th;
             this.h = _h;
             listTh = new List<myThread>();
-            isEnd = false;
+            isEnd = 0;
 
             double step = (_b - _a) / _th;
 
@@ -44,11 +44,15 @@ namespace cs_pp1
             double res = 0;
             TimeSpan maxTime = listTh[0].time;
 
-            while (isEnd == false)
+            while (isEnd != th)
             {
+                isEnd = 0;
                 for (int i = 0; i < this.th; i++)
                 {
-                    isEnd = listTh[i].isEnd;
+                    if (listTh[i].isEnd)
+                    {
+                        isEnd += 1;
+                    }
                 }
             }
 
