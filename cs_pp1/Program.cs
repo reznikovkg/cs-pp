@@ -1,6 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using System.Runtime.InteropServices;
+using System.Threading;
+
+using System.Linq;
+
+using System.Text;
+
+
+
 namespace cs_pp1
 {
     class Program
@@ -39,5 +48,8 @@ namespace cs_pp1
                 st = int.Parse(Console.ReadLine());
             }
         }
+
+
+            
     }
 }

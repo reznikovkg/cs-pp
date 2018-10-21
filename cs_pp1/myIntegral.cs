@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
+
+
 namespace cs_pp1
 {
     class myIntegral
@@ -68,4 +70,5 @@ namespace cs_pp1
                 "Ответ: " + res + ", время выполнения:" + maxTime + "\n\n";
         }
     }
+
 }
