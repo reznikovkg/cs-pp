@@ -1,28 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Runtime.InteropServices;
 using System.Threading;
-
 using System.Linq;
-
 using System.Text;
-
 
 
 namespace cs_pp1
 {
     class Program
     {
-        static double Fu2 (double x)
+        static double FuncForIntegral (double x)
         {
             return Math.Sin(x);
         }
 
         static void Main(string[] args)
         {
-            Func<double, double> Fu = Fu2;
-            List<myIntegral> listIn = new List<myIntegral>();
+            Func<double, double> Func = FuncForIntegral;
+            List<MyIntegral> listIn = new List<MyIntegral>();
 
             int st = 1;
             double h = 1;
@@ -41,15 +37,12 @@ namespace cs_pp1
                 Console.WriteLine("Верхняя граница: ");
                 b = double.Parse(Console.ReadLine());
 
-                myIntegral iinn = new myIntegral(Fu, st, h, a, b);
-                Console.WriteLine(iinn.getResult());
+                MyIntegral iinn = new MyIntegral(Func, st, h, a, b);
 
                 Console.WriteLine("Кол-во потоков (0 -> выход): ");
                 st = int.Parse(Console.ReadLine());
             }
         }
-
-
-            
+        
     }
 }
