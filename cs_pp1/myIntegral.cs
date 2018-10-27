@@ -59,8 +59,8 @@ namespace cs_pp1
                 lock (new object())
                 {
                     res = res + func(i) * h;
-                    Thread.Sleep(10);
                 }
+                Thread.Sleep(10);
             }
         }
         
