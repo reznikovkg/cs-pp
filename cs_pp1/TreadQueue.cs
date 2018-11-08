@@ -21,7 +21,7 @@ namespace cs_pp1
             lock (block)
             {
                 list.Enqueue(_e);
-                Console.WriteLine(Thread.CurrentThread.Name + ", добавил " + _e);
+                Console.WriteLine(Thread.CurrentThread.Name + ", >> " + _e);
             }
             Thread.Sleep(1);
         }
@@ -34,7 +34,7 @@ namespace cs_pp1
                 if (list.Count > 0)
                 {
                     first = list.Dequeue();
-                    Console.WriteLine(Thread.CurrentThread.Name + ", удалил " + first);
+                    Console.WriteLine(Thread.CurrentThread.Name + ", << " + first);
                 }
             }
             Thread.Sleep(1);

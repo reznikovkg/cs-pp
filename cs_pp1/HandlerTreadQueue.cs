@@ -19,26 +19,34 @@ namespace cs_pp1
         List<Thread> listTreadPop;
         WaitHandle[] waitHandlesPop;
 
-        /*public bool isAliveAll()
+        private object block = new object();
+
+        string GenRandomString(int Length)
         {
-            bool t = false;
-            for (int i = 0; i< tQpush; i ++)
+            string Alphabet = "QWERTYUIOPASDFGHJKLZXCVBNM";
+            Random rnd = new Random();
+            StringBuilder sb = new StringBuilder(Length - 1);
+            int Position = 0;
+
+            for (int i = 0; i < Length; i++)
             {
-                if (listTreadPush[i].IsAlive)
-                {
-                    t = true;
-                }
+                Position = rnd.Next(0, Alphabet.Length - 1);
+                sb.Append(Alphabet[Position]);
             }
-            return t;
-        }*/
+            return sb.ToString();
+        }
 
         public void FunQueuePush(int count)
         {
             for (int i = 0; i < count; i++)
             {
-                tQ.push((i+1).ToString());
+                tQ.push((i+1).ToString() + "_" + GenRandomString(10));
             }
-            isEnd++;
+            lock (block)
+            {
+                isEnd++;
+            }
+            Thread.Sleep(1);
         }
 
         public void FunQueuePop()
@@ -81,9 +89,6 @@ namespace cs_pp1
                 waitHandlesPop[i] = handle;
                 listTreadPop[i].Start();
             }
-            
-
-
 
             WaitHandle.WaitAll(waitHandlesPush);
             WaitHandle.WaitAll(waitHandlesPop);
