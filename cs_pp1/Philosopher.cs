@@ -10,10 +10,36 @@ namespace cs_pp1
 
         int Power;
 
+        public bool LeftDevice;
+
+        public bool RightDevice;
+
+        public bool _short = false;
+     
+        public string GetShort()
+        {
+            if (this._short)
+            {
+                this._short = false;
+                return " съел";
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+
+        public int waitCount = 0;
+    
 
         public Philosopher()
         {
+            this.Name = "";
+            this.Power = 0;
 
+            this.LeftDevice = false;
+            this.RightDevice = false;
         }
 
         /**
@@ -45,8 +71,30 @@ namespace cs_pp1
          */
         public string GetStatistics()
         {
-            return (this.GetName() + ": " + this.GetPower().ToString());
+            return (this.GetName() + " " + this.GetStatLeftDev() + "|" + this.GetStatRightDev() + " : " + this.GetPower().ToString() + this.GetShort());
         }
 
+        public string GetStatLeftDev()
+        {
+            if (this.LeftDevice)
+            {
+                return "+";
+            } else
+            {
+                return " ";
+            }
+        }
+
+        public string GetStatRightDev()
+        {
+            if (this.RightDevice)
+            {
+                return "+";
+            }
+            else
+            {
+                return " ";
+            }
+        }
     }
 }
