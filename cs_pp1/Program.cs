@@ -16,12 +16,8 @@ namespace cs_pp1
             int PhilosophersCount;
             Console.WriteLine("Кол-во философов: ");
             PhilosophersCount = int.Parse(Console.ReadLine());
-
-            int PhilosophersPower;
-            Console.WriteLine("Кол-во пищи: ");
-            PhilosophersPower = int.Parse(Console.ReadLine());
-
-            PhilosophersLunch lunch = new PhilosophersLunch(PhilosophersCount, PhilosophersPower);
+            
+            PhilosophersLunch lunch = new PhilosophersLunch(PhilosophersCount);
             lunch.StartLunch();
 
             Console.ReadKey();

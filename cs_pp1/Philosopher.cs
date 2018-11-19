@@ -15,7 +15,10 @@ namespace cs_pp1
         public bool RightDevice;
 
         public bool _short = false;
-     
+
+        /**
+         * Информация если съел
+         */
         public string GetShort()
         {
             if (this._short)
@@ -29,7 +32,9 @@ namespace cs_pp1
             }
         }
 
-
+        /**
+         * Параметр ожидания 
+         */
         public int waitCount = 0;
     
 
